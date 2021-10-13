@@ -49,6 +49,20 @@ public class Utility {
         return maxSalary;
     }
 
+    static int getMinNumberOfSubordinates(Manager[] employeeArray) {
+        int minValue = Integer.MAX_VALUE;
+        String manager = "";
+        for (int i = 0; i < employeeArray.length; i++) {
+            if(minValue > employeeArray[i].getNumberOfSubordinates()) {
+
+                minValue = employeeArray[i].getNumberOfSubordinates();
+                manager = employeeArray[i].getName();
+            }
+        }
+        System.out.println(manager);
+        return minValue;
+    }
+
     public static void main(String[] args) {
 
         Worker worker = new Worker();
@@ -58,16 +72,23 @@ public class Utility {
         manager.setName("Ann");
         manager.setBaseSalary(5000);
         manager.setNumberOfSubordinates(1);
+        Manager manager1 = new Manager();
+        manager1.setName("Natalie");
+        manager1.setBaseSalary(10000);
+        manager1.setNumberOfSubordinates(6);
         Director director = new Director();
         director.setName("Phil");
         director.setBaseSalary(10000);
+        director.setNumberOfSubordinates(3);
 
-        Employee[] employees = new Employee[]{worker, manager, director};
+        Employee[] employees = new Employee[] {worker, manager, director};
+        Manager[] managers = new Manager[] {manager1, manager};
 
-        Employee foundEmployee = findEmployeeByName(employees, "Phil");
+        //Employee foundEmployee = findEmployeeByName(employees, "Phil");
         //System.out.println(foundEmployee.getSalary());
         //System.out.println(getSalaryBudget(employees));
-        System.out.println(getMaxSalary(employees));
+        //System.out.println(getMaxSalary(employees));
+        System.out.println(getMinNumberOfSubordinates(managers));
     }
 }
 

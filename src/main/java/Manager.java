@@ -1,6 +1,6 @@
 public class Manager extends Employee{
 
-    int numberOfSubordinates;
+    int numberOfSubordinates = 0;
 
     public int getNumberOfSubordinates() {
         return numberOfSubordinates;
