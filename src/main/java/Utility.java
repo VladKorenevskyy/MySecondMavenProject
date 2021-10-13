@@ -37,6 +37,18 @@ public class Utility {
         return minSalary;
     }
 
+    static double getMaxSalary(Employee[] employeeArray) {
+        double maxSalary = Integer.MIN_VALUE;
+
+        for (int i = 0; i < employeeArray.length; i++) {
+            if(maxSalary < employeeArray[i].getBaseSalary()) {
+                maxSalary = employeeArray[i].getBaseSalary();
+            }
+        }
+
+        return maxSalary;
+    }
+
     public static void main(String[] args) {
 
         Worker worker = new Worker();
@@ -55,7 +67,7 @@ public class Utility {
         Employee foundEmployee = findEmployeeByName(employees, "Phil");
         //System.out.println(foundEmployee.getSalary());
         //System.out.println(getSalaryBudget(employees));
-        System.out.println(getMinSalary(employees));
+        System.out.println(getMaxSalary(employees));
     }
 }
 
