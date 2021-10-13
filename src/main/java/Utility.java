@@ -25,6 +25,18 @@ public class Utility {
         return totalBudget;
     }
 
+    static double getMinSalary(Employee[] employeeArray) {
+        double minSalary = Integer.MAX_VALUE;
+
+        for (int i = 0; i < employeeArray.length; i++) {
+            if(minSalary > employeeArray[i].getBaseSalary()) {
+                minSalary = employeeArray[i].getBaseSalary();
+            }
+        }
+
+        return minSalary;
+    }
+
     public static void main(String[] args) {
 
         Worker worker = new Worker();
@@ -37,14 +49,13 @@ public class Utility {
         Director director = new Director();
         director.setName("Phil");
         director.setBaseSalary(10000);
-        director.setNumberOfSubordinates(1);
 
         Employee[] employees = new Employee[]{worker, manager, director};
 
         Employee foundEmployee = findEmployeeByName(employees, "Phil");
         //System.out.println(foundEmployee.getSalary());
-
-        System.out.println(getSalaryBudget(employees));
+        //System.out.println(getSalaryBudget(employees));
+        System.out.println(getMinSalary(employees));
     }
 }
 
